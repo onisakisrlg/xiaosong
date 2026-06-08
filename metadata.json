@@ -1,0 +1,6 @@
+{
+  "name": "小松株式会社",
+  "description": "小松株式会社（Komatsu Co., Ltd.）官方网站。专注于各类汽车轮胎贩卖、批发与安装维护服务，提供高性价比轮胎与专业技术支持。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
