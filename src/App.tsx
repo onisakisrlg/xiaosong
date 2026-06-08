@@ -14,7 +14,6 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { TiresCatalog } from './components/TiresCatalog';
-import { TireCalculator } from './components/TireCalculator';
 import { FAQs } from './components/FAQs';
 import { InquiryForm } from './components/InquiryForm';
 import { Footer } from './components/Footer';
@@ -46,9 +45,6 @@ export default function App() {
 
         {/* Products Catalogue */}
         <TiresCatalog onSelectTire={handleSelectTire} />
-
-        {/* Sizing & Calibration Calculator */}
-        <TireCalculator />
 
         {/* FAQs */}
         <FAQs />

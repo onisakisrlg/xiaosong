@@ -28,19 +28,6 @@ export interface TireProduct {
   popularity: number;  // 热门评分
 }
 
-export interface CalculatorInput {
-  width: number;
-  aspectRatio: number;
-  diameter: number;
-}
-
-export interface CalculatorResult {
-  sidewallHeight: number; // 单侧胎壁高度 (mm)
-  totalDiameter: number;  // 轮胎总直径 (mm)
-  circumference: number;  // 轮胎周长 (mm)
-  revsPerKm: number;      // 每公里转数
-}
-
 export interface InquiryFormData {
   name: string;
   email: string;

@@ -26,7 +26,7 @@ export const FAQs: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
             {t.navFAQ} · FAQ
           </h2>
-          <div className="w-16 h-1 bg-red-600 mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-white mx-auto rounded-full" />
           <p className="text-sm sm:text-base text-slate-400">
             常见的轮胎技术指标与配送置换事宜
           </p>
@@ -49,7 +49,7 @@ export const FAQs: React.FC = () => {
                   className="w-full flex items-center justify-between p-5 text-left text-slate-200 font-bold hover:text-white hover:bg-slate-800/40 transition-all font-sans cursor-pointer"
                 >
                   <div className="flex items-center space-x-3.5 pr-4">
-                    <HelpCircle className="w-5 h-5 text-red-500 shrink-0" />
+                    <HelpCircle className="w-5 h-5 text-slate-300 shrink-0" />
                     <span className="text-sm sm:text-base leading-snug">{questionText}</span>
                   </div>
                   <span>

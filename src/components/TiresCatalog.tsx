@@ -25,15 +25,15 @@ export const TiresCatalog: React.FC<TiresCatalogProps> = ({ onSelectTire }) => {
   const getTireIcon = (type: TireType) => {
     switch (type) {
       case TireType.SPORT:
-        return <Flame className="w-5 h-5 text-red-500" />;
+        return <Flame className="w-5 h-5 text-slate-300" />;
       case TireType.COMFORT:
-        return <Wind className="w-5 h-5 text-blue-400" />;
+        return <Wind className="w-5 h-5 text-slate-300" />;
       case TireType.ECO:
-        return <Leaf className="w-5 h-5 text-green-400" />;
+        return <Leaf className="w-5 h-5 text-slate-300" />;
       case TireType.SUV:
-        return <Gauge className="w-5 h-5 text-amber-500" />;
+        return <Gauge className="w-5 h-5 text-slate-300" />;
       case TireType.WINTER:
-        return <Snowflake className="w-5 h-5 text-sky-400 animate-spin-slow" />;
+        return <Snowflake className="w-5 h-5 text-slate-300 animate-spin-slow" />;
     }
   };
 
@@ -65,7 +65,7 @@ export const TiresCatalog: React.FC<TiresCatalogProps> = ({ onSelectTire }) => {
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
             {t.productTitle}
           </h2>
-          <div className="w-16 h-1 bg-red-600 mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-white mx-auto rounded-full" />
           <p className="text-sm sm:text-base text-slate-400">
             {t.productSub}
           </p>
@@ -77,7 +77,7 @@ export const TiresCatalog: React.FC<TiresCatalogProps> = ({ onSelectTire }) => {
             onClick={() => setSelectedType('ALL')}
             className={`px-4 sm:px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all border cursor-pointer ${
               selectedType === 'ALL'
-                ? 'bg-red-600 border-red-600 text-white shadow-lg shadow-red-900/20'
+                ? 'bg-white border-white text-slate-950 font-bold shadow-lg shadow-white/5'
                 : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-100'
             }`}
           >
@@ -89,7 +89,7 @@ export const TiresCatalog: React.FC<TiresCatalogProps> = ({ onSelectTire }) => {
               onClick={() => setSelectedType(type)}
               className={`px-4 sm:px-5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all border flex items-center space-x-1.5 cursor-pointer ${
                 selectedType === type
-                  ? 'bg-red-600 border-red-600 text-white shadow-lg shadow-red-900/20'
+                  ? 'bg-white border-white text-slate-950 font-bold shadow-lg shadow-white/5'
                   : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-100'
               }`}
             >
@@ -104,10 +104,10 @@ export const TiresCatalog: React.FC<TiresCatalogProps> = ({ onSelectTire }) => {
           
           {/* Static info card showcasing premium technical patterns */}
           <div className="xl:col-span-1 bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden h-full min-h-[350px]">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/5 rounded-full blur-2xl" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl" />
             
             <div className="space-y-6">
-              <span className="text-[10px] uppercase font-mono tracking-widest text-red-500 font-extrabold bg-red-950/40 border border-red-950 px-2.5 py-1 rounded">
+              <span className="text-[10px] uppercase font-mono tracking-widest text-slate-300 font-extrabold bg-slate-900 border border-slate-850 px-2.5 py-1 rounded">
                 TECHNICAL ASSURANCE
               </span>
               <h3 className="text-xl font-bold text-slate-200">
@@ -133,11 +133,11 @@ export const TiresCatalog: React.FC<TiresCatalogProps> = ({ onSelectTire }) => {
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
-                className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-slate-700 hover:shadow-xl hover:shadow-red-950/5 transition-all duration-300 relative group"
+                className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-slate-700 hover:shadow-xl hover:shadow-black/60 transition-all duration-300 relative group"
               >
                 {/* Popular Badge */}
                 {product.popularity >= 4.8 && (
-                  <span className="absolute top-3.5 right-3.5 flex items-center space-x-1 bg-yellow-500/15 border border-yellow-500/40 text-yellow-500 text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                   <span className="absolute top-3.5 right-3.5 flex items-center space-x-1 bg-slate-800 border border-slate-700 text-slate-200 text-[10px] font-bold px-2 py-0.5 rounded shadow">
                     <span>★ {product.popularity}</span>
                     <span>{t.popularBadge}</span>
                   </span>
@@ -156,10 +156,10 @@ export const TiresCatalog: React.FC<TiresCatalogProps> = ({ onSelectTire }) => {
                   </div>
 
                   <div>
-                    <h4 className="text-xs font-mono font-bold text-red-500 tracking-wider uppercase mb-1">
+                    <h4 className="text-xs font-mono font-bold text-slate-400 tracking-wider uppercase mb-1">
                       {product.brand} ORIGINAL SERIES
                     </h4>
-                    <h3 className="text-lg font-bold text-slate-100 group-hover:text-red-500 transition-colors">
+                    <h3 className="text-lg font-bold text-slate-100 group-hover:text-white transition-colors">
                       {product.name}
                     </h3>
                   </div>
@@ -201,7 +201,7 @@ export const TiresCatalog: React.FC<TiresCatalogProps> = ({ onSelectTire }) => {
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <span className="text-[10px] text-slate-500 block uppercase font-mono tracking-wider">ESTIMATED PRICE</span>
-                      <span className="text-xl font-bold font-mono text-red-500">
+                      <span className="text-xl font-bold font-mono text-white">
                         ¥{product.priceYen.toLocaleString()}
                       </span>
                       <span className="text-xs text-slate-400 lowercase ml-0.5">
@@ -212,7 +212,7 @@ export const TiresCatalog: React.FC<TiresCatalogProps> = ({ onSelectTire }) => {
 
                   <button
                     onClick={() => handleInquiryClick(product)}
-                    className="w-full flex items-center justify-center space-x-1.5 py-2.5 rounded-lg bg-slate-800 border border-slate-700/80 hover:bg-red-600 hover:border-red-600 font-semibold text-xs text-slate-200 hover:text-white transition-all cursor-pointer shadow group"
+                    className="w-full flex items-center justify-center space-x-1.5 py-2.5 rounded-lg bg-slate-850 border border-slate-700 hover:bg-white hover:border-white font-bold text-xs text-slate-200 hover:text-slate-950 transition-all cursor-pointer shadow group"
                   >
                     <span>{t.inquiryNow}</span>
                   </button>

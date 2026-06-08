@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
           {/* Column 1: Trademark and description */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center space-x-2">
-              <span className="bg-red-600 px-3 py-1.5 rounded text-white font-mono font-bold tracking-widest text-sm shadow">KMTS</span>
+              <span className="bg-white px-3 py-1.5 rounded text-slate-950 font-mono font-extrabold tracking-widest text-sm shadow">KMTS</span>
               <span className="text-white font-bold text-lg font-sans">小松株式会社</span>
             </div>
             <p className="text-xs text-slate-500 max-w-sm font-sans leading-relaxed">
@@ -40,12 +40,11 @@ export const Footer: React.FC = () => {
               クイックリンク · Quick Navigation
             </h4>
             <div className="grid grid-cols-2 gap-2 text-xs">
-              <a href="#home" className="hover:text-red-500 transition-colors">{t.navHome}</a>
-              <a href="#about" className="hover:text-red-500 transition-colors">{t.navAbout}</a>
-              <a href="#products" className="hover:text-red-500 transition-colors">{t.navProducts}</a>
-              <a href="#calculator" className="hover:text-red-500 transition-colors">{t.navCalculator}</a>
-              <a href="#faq" className="hover:text-red-500 transition-colors">{t.navFAQ}</a>
-              <a href="#contact" className="hover:text-red-500 transition-colors">{t.navContact}</a>
+              <a href="#home" className="hover:text-white transition-colors">{t.navHome}</a>
+              <a href="#about" className="hover:text-white transition-colors">{t.navAbout}</a>
+              <a href="#products" className="hover:text-white transition-colors">{t.navProducts}</a>
+              <a href="#faq" className="hover:text-white transition-colors">{t.navFAQ}</a>
+              <a href="#contact" className="hover:text-white transition-colors">{t.navContact}</a>
             </div>
           </div>
 
@@ -56,7 +55,7 @@ export const Footer: React.FC = () => {
             </h4>
             <div className="space-y-2 text-xs leading-relaxed font-sans text-slate-500">
               <p className="flex items-start">
-                <MapPin className="w-3.5 h-3.5 text-red-500 mr-2 shrink-0 mt-0.5" />
+                <MapPin className="w-3.5 h-3.5 text-slate-400 mr-2 shrink-0 mt-0.5" />
                 <span>東京都足立区江北３丁目３０－１８</span>
               </p>
               <p className="pl-5">

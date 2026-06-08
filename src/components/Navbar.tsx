@@ -20,7 +20,6 @@ export const Navbar: React.FC = () => {
     { name: t.navHome, href: '#home' },
     { name: t.navAbout, href: '#about' },
     { name: t.navProducts, href: '#products' },
-    { name: t.navCalculator, href: '#calculator' },
     { name: t.navFAQ, href: '#faq' },
     { name: t.navContact, href: '#contact' },
   ];
@@ -31,8 +30,8 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo Brand Brand */}
           <div className="flex items-center space-x-3">
-            <div className="bg-red-600 p-2.5 rounded-lg flex items-center justify-center shadow-lg shadow-red-900/20">
-              <span className="font-bold text-lg font-mono tracking-widest text-white">KMTS</span>
+            <div className="bg-white p-2.5 rounded-lg flex items-center justify-center shadow-lg shadow-black/80">
+              <span className="font-bold text-lg font-mono tracking-widest text-slate-950">KMTS</span>
             </div>
             <div>
               <div className="flex items-center space-x-1.5">
@@ -49,7 +48,7 @@ export const Navbar: React.FC = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-slate-300 hover:text-red-500 font-medium text-sm transition-colors duration-200"
+                className="text-slate-400 hover:text-white font-medium text-sm transition-colors duration-200"
               >
                 {item.name}
               </a>
@@ -62,18 +61,18 @@ export const Navbar: React.FC = () => {
             <button
               onClick={toggleLanguage}
               id="btn-lang-switcher"
-              className="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full border border-slate-700 bg-slate-800 text-slate-200 text-xs font-semibold hover:bg-slate-700 hover:border-slate-600 transition-all cursor-pointer"
+              className="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full border border-slate-700 bg-slate-800 text-slate-200 text-xs font-semibold hover:bg-slate-750 hover:border-slate-600 transition-all cursor-pointer"
             >
-              <Globe className="w-3.5 h-3.5 text-red-500 animate-pulse" />
+              <Globe className="w-3.5 h-3.5 text-slate-300" />
               <span>{t.langName}</span>
             </button>
 
             {/* Quick Consultation Badge */}
             <a
               href="#contact"
-              className="flex items-center space-x-1 px-4 py-2 rounded-lg bg-red-600 font-semibold text-xs tracking-wide text-white hover:bg-red-700 shadow-md shadow-red-900/30 transition-all cursor-pointer"
+              className="flex items-center space-x-1.5 px-4 py-2 rounded-lg bg-white font-bold text-xs tracking-wide text-slate-950 hover:bg-slate-200 shadow-md transition-all cursor-pointer"
             >
-              <Phone className="w-3.5 h-3.5" />
+              <Phone className="w-3.5 h-3.5 text-slate-950" />
               <span>{t.btnInquiry}</span>
             </a>
           </div>
@@ -119,9 +118,9 @@ export const Navbar: React.FC = () => {
               <a
                 href="#contact"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center space-x-2 w-full py-3 rounded-lg bg-red-600 font-semibold text-sm text-white hover:bg-red-700"
+                className="flex items-center justify-center space-x-2 w-full py-3 rounded-lg bg-white font-bold text-sm text-slate-950 hover:bg-slate-200 transition-colors"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-4 h-4 text-slate-950" />
                 <span>{t.btnInquiry}</span>
               </a>
             </div>

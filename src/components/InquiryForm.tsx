@@ -75,7 +75,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ selectedTire, onClearS
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white animate-fade-in">
             {t.formTitle}
           </h2>
-          <div className="w-16 h-1 bg-red-600 mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-white mx-auto rounded-full" />
           <p className="text-sm sm:text-base text-slate-400">
             {t.formSub}
           </p>
@@ -87,7 +87,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ selectedTire, onClearS
           {/* Left Panel: Corp contact details */}
           <div className="lg:col-span-5 space-y-6">
             <h3 className="text-2xl font-bold text-white mb-4">
-              小松株式会社 <span className="text-red-500 font-normal">Contact Desk</span>
+              小松株式会社 <span className="text-slate-400 font-normal">Contact Desk</span>
             </h3>
             <p className="text-sm text-slate-400 leading-relaxed">
               支持大货分销、日本国内物流配送、散货及配载调拨。无论是东京都本地车厂或是海外贸易，均可提供适格发票（インボイス制度適格請求書発行事業者）。
@@ -96,7 +96,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ selectedTire, onClearS
             <div className="space-y-4 pt-4">
               {/* Phone item */}
               <div className="flex items-start space-x-3.5 bg-slate-950/40 p-4.5 rounded-xl border border-slate-800/80">
-                <div className="bg-red-950 border border-red-800/50 p-2.5 rounded-lg text-red-500 shrink-0 mt-0.5">
+                <div className="bg-slate-900 border border-slate-750 p-2.5 rounded-lg text-slate-300 shrink-0 mt-0.5">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
@@ -108,7 +108,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ selectedTire, onClearS
 
               {/* Email item */}
               <div className="flex items-start space-x-3.5 bg-slate-950/40 p-4.5 rounded-xl border border-slate-800/80">
-                <div className="bg-red-950 border border-red-800/50 p-2.5 rounded-lg text-red-500 shrink-0 mt-0.5">
+                <div className="bg-slate-900 border border-slate-750 p-2.5 rounded-lg text-slate-300 shrink-0 mt-0.5">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
@@ -120,7 +120,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ selectedTire, onClearS
 
               {/* Address Map Pin */}
               <div className="flex items-start space-x-3.5 bg-slate-950/40 p-4.5 rounded-xl border border-slate-800/80">
-                <div className="bg-red-950 border border-red-800/50 p-2.5 rounded-lg text-red-500 shrink-0 mt-0.5">
+                <div className="bg-slate-900 border border-slate-750 p-2.5 rounded-lg text-slate-300 shrink-0 mt-0.5">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
@@ -133,7 +133,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ selectedTire, onClearS
 
             {/* Support guarantee badge */}
             <div className="p-4 bg-slate-950 rounded-lg border border-slate-800/80 flex items-center space-x-3 text-xs text-slate-400 leading-relaxed font-sans shadow-inner">
-              <ShieldCheck className="w-8 h-8 text-red-500 shrink-0" />
+              <ShieldCheck className="w-8 h-8 text-slate-300 shrink-0" />
               <span>
                 <strong>日本原厂保证：</strong> 售出的每一条轮胎均带完整的生产批次DOT代码与JIS检验标识，支持全渠道检验。
               </span>
@@ -145,17 +145,17 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ selectedTire, onClearS
             
             {/* Active Selected Tire Tag indicator */}
             {selectedTire && (
-              <div className="mb-6 bg-red-950/60 border border-red-800/80 p-3.5 rounded-xl flex items-center justify-between animate-pulse">
+              <div className="mb-6 bg-slate-900 border border-slate-800 p-3.5 rounded-xl flex items-center justify-between">
                 <div className="text-xs">
-                  <span className="font-semibold text-red-400 block">已锁定目录款式 (Catalog product selected)</span>
-                  <span className="text-slate-200 font-mono font-bold">
+                  <span className="font-semibold text-slate-400 block">已锁定目录款式 (Catalog product selected)</span>
+                  <span className="text-white font-mono font-bold">
                     KOMATSU {selectedTire.name} ({selectedTire.width}/{selectedTire.aspectRatio} R{selectedTire.diameter})
                   </span>
                 </div>
                 <button
                   type="button"
                   onClick={onClearSelectedTire}
-                  className="p-1.5 rounded-full hover:bg-red-900 border border-transparent text-slate-400 hover:text-white transition-colors cursor-pointer"
+                  className="p-1.5 rounded-full hover:bg-slate-800 border border-transparent text-slate-400 hover:text-white transition-colors cursor-pointer"
                   title="清除选择"
                 >
                   <X className="w-4 h-4" />
@@ -192,27 +192,27 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ selectedTire, onClearS
                 <div className="grid sm:grid-cols-2 gap-4">
                   {/* Name */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-400 block">{t.formLabelName} <span className="text-red-500">*</span></label>
+                    <label className="text-xs font-semibold text-slate-400 block">{t.formLabelName} <span className="text-slate-400">*</span></label>
                     <input
                       type="text"
                       required
                       placeholder={t.formPlaceholderName}
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-red-600 font-sans"
+                      className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-slate-600 font-sans"
                     />
                   </div>
 
                   {/* Email */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-400 block">{t.formLabelEmail} <span className="text-red-500">*</span></label>
+                    <label className="text-xs font-semibold text-slate-400 block">{t.formLabelEmail} <span className="text-slate-400">*</span></label>
                     <input
                       type="email"
                       required
                       placeholder="info@yourcompany.jp"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-red-600 font-mono"
+                      className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-slate-600 font-mono"
                     />
                   </div>
                 </div>
@@ -220,14 +220,14 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ selectedTire, onClearS
                 <div className="grid sm:grid-cols-2 gap-4">
                   {/* Phone */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-400 block">{t.formLabelPhone} <span className="text-red-500">*</span></label>
+                    <label className="text-xs font-semibold text-slate-400 block">{t.formLabelPhone} <span className="text-slate-400">*</span></label>
                     <input
                       type="tel"
                       required
                       placeholder="例：03-1234-5678"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-red-600 font-mono"
+                      className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-slate-600 font-mono"
                     />
                   </div>
 
@@ -237,7 +237,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ selectedTire, onClearS
                     <select
                       value={formData.tireType}
                       onChange={(e) => setFormData({ ...formData, tireType: e.target.value })}
-                      className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-red-600 font-sans appearance-none"
+                      className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-slate-600 font-sans appearance-none"
                     >
                       <option value={TireType.SPORT}>{t.sport}</option>
                       <option value={TireType.COMFORT}>{t.comfort}</option>
@@ -257,7 +257,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ selectedTire, onClearS
                       placeholder="例如：215/60R16 或 R18等 (可空白)"
                       value={formData.sizeDesired}
                       onChange={(e) => setFormData({ ...formData, sizeDesired: e.target.value })}
-                      className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-red-600"
+                      className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-slate-600"
                     />
                   </div>
 
@@ -267,7 +267,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ selectedTire, onClearS
                     <select
                       value={formData.quantity}
                       onChange={(e) => setFormData({ ...formData, quantity: parseInt(e.target.value) })}
-                      className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-red-600 font-mono"
+                      className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-slate-600 font-mono"
                     >
                       <option value="1">1 条 (Spare)</option>
                       <option value="2">2 条 (Axle)</option>
@@ -286,7 +286,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ selectedTire, onClearS
                     placeholder={t.formPlaceholderMsg}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-red-600 font-sans"
+                    className="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-slate-600 font-sans"
                   />
                 </div>
 
@@ -294,9 +294,9 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ selectedTire, onClearS
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center space-x-2 py-3.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold tracking-wider text-sm transition-all disabled:opacity-50 cursor-pointer shadow-lg shadow-red-900/20"
+                  className="w-full flex items-center justify-center space-x-2 py-3.5 rounded-lg bg-white hover:bg-slate-200 text-slate-950 font-bold tracking-wider text-sm transition-all disabled:opacity-50 cursor-pointer shadow-lg shadow-black/80"
                 >
-                  <Send className="w-4 h-4" />
+                  <Send className="w-4 h-4 text-slate-950" />
                   <span>{isSubmitting ? t.formSending : t.formSubmitBtn}</span>
                 </button>
               </form>
