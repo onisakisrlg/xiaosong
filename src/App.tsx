@@ -32,7 +32,7 @@ export default function App() {
 
   return (
     <LanguageProvider>
-      <div className="bg-slate-950 min-h-screen text-slate-100 font-sans selection:bg-red-600 selection:text-white">
+      <div className="bg-white min-h-screen text-slate-950 font-sans selection:bg-slate-950 selection:text-white">
         
         {/* Navigation Bar */}
         <Navbar />
