@@ -111,10 +111,10 @@ export const TiresCatalog: React.FC<TiresCatalogProps> = ({ onSelectTire }) => {
                 TECHNICAL ASSURANCE
               </span>
               <h3 className="text-xl font-bold text-slate-900">
-                日本JIS标准认证 & 耐磨静音制造工艺
+                日本JIS規格準拠 & 静音・耐摩耗テクノロジー
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed font-semibold">
-                小松轮胎系列运用领先的分子化碳硅补强化技术，多段式变频槽可最大程度干扰声波传导。无论在拥堵市区或高架桥梁，均能保障极佳的路感稳定性。
+                小松タイヤのプロフェッショナルシリーズは、先進のカーボンシリカ補強技術を採用し、可変トレッドピッチにより走行時の高周波ノイズを極限まで低減。優れた直進安定性と操縦性を保証します。
               </p>
             </div>
 
@@ -173,7 +173,7 @@ export const TiresCatalog: React.FC<TiresCatalogProps> = ({ onSelectTire }) => {
                       </div>
                     </div>
                     <div className="text-right border-l border-slate-200 pl-4 overflow-hidden">
-                      <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">配重载荷</div>
+                      <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">ロードインデックス</div>
                       <div className="text-xs font-mono font-extrabold text-slate-800 mt-0.5">
                         {product.loadIndex}{product.speedRating}
                       </div>

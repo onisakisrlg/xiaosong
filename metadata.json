@@ -1,6 +1,6 @@
 {
   "name": "小松株式会社",
-  "description": "小松株式会社（Komatsu Co., Ltd.）官方网站。专注于各类汽车轮胎贩卖、批发与安装维护服务，提供高性价比轮胎与专业技术支持。",
+  "description": "小松株式会社（Komatsu Co., Ltd.）の公式ウェブサイトです。乗用車・トラック・スタッドレスなど高品質な各種タイヤ・ホイールを卸売・小売にて適正価格でご提供いたします。",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from '../context/LanguageContext';
-import { InquiryFormData, TireProduct, TireType } from '../types';
-import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, ShieldCheck, X } from 'lucide-react';
+import { TireProduct } from '../types';
+import { Mail, Phone, MapPin, ShieldCheck, X } from 'lucide-react';
 
 interface InquiryFormProps {
   selectedTire: TireProduct | null;
@@ -15,56 +15,6 @@ interface InquiryFormProps {
 
 export const InquiryForm: React.FC<InquiryFormProps> = ({ selectedTire, onClearSelectedTire }) => {
   const { t } = useTranslation();
-
-  const [formData, setFormData] = useState<InquiryFormData>({
-    name: '',
-    email: '',
-    phone: '',
-    tireType: 'COMFORT',
-    sizeDesired: '',
-    quantity: 4,
-    message: '',
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  // If a catalog tire is selected, pre-populate values!
-  useEffect(() => {
-    if (selectedTire) {
-      setFormData(prev => ({
-        ...prev,
-        tireType: selectedTire.type,
-        sizeDesired: `${selectedTire.width}/${selectedTire.aspectRatio} R${selectedTire.diameter}`,
-        message: prev.message || `【咨询轮胎】：KOMATSU ${selectedTire.name} (售价约 ¥${selectedTire.priceYen.toLocaleString()}日元/条)。`,
-      }));
-    }
-  }, [selectedTire]);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.phone) {
-      return;
-    }
-
-    setIsSubmitting(true);
-    // Simulating API submissions
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      // Reset form variables
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        tireType: 'COMFORT',
-        sizeDesired: '',
-        quantity: 4,
-        message: '',
-      });
-      onClearSelectedTire();
-    }, 1500);
-  };
 
   return (
     <section id="contact" className="py-20 bg-white border-b border-slate-150">
@@ -76,234 +26,110 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ selectedTire, onClearS
             {t.formTitle}
           </h2>
           <div className="w-16 h-1 bg-black mx-auto rounded-full" />
-          <p className="text-sm sm:text-base text-slate-500 font-medium">
+          <p className="text-sm sm:text-base text-slate-500 font-medium whitespace-pre-line">
             {t.formSub}
           </p>
         </div>
 
-        {/* Form Split Layout */}
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
-          
-          {/* Left Panel: Corp contact details */}
-          <div className="lg:col-span-12 xl:col-span-5 space-y-6">
-            <h3 className="text-2xl font-extrabold text-slate-900 mb-4">
-              小松株式会社 <span className="text-slate-500 font-normal text-lg">Contact Desk</span>
-            </h3>
-            <p className="text-sm text-slate-600 leading-relaxed font-semibold">
-              支持大货分销、日本国内物流配送、散货及配载调拨。无论是东京都本地车厂或是海外贸易，均可提供适格发票（インボイス制度適格請求書発行事業者）。
-            </p>
-
-            <div className="space-y-4 pt-4">
-              {/* Phone item */}
-              <div className="flex items-start space-x-3.5 bg-slate-50 p-4.5 rounded-xl border border-slate-205">
-                <div className="bg-white border border-slate-200 p-2.5 rounded-lg text-slate-850 shrink-0 mt-0.5 shadow-xs">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-xs font-mono font-bold tracking-widest text-slate-500 uppercase">{t.telNum}</h4>
-                  <p className="text-lg font-extrabold font-mono text-slate-900 mt-1">{t.telVal}</p>
-                  <p className="text-[10px] text-slate-500 font-semibold mt-0.5">{t.workHoursVal}</p>
-                </div>
-              </div>
-
-              {/* Email item */}
-              <div className="flex items-start space-x-3.5 bg-slate-50 p-4.5 rounded-xl border border-slate-205">
-                <div className="bg-white border border-slate-200 p-2.5 rounded-lg text-slate-850 shrink-0 mt-0.5 shadow-xs">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-xs font-mono font-bold tracking-widest text-slate-500 uppercase">{t.emailContact}</h4>
-                  <p className="text-sm font-extrabold font-mono text-slate-900 mt-1">info@komatsu-tire-tokyo.co.jp</p>
-                  <p className="text-[10px] text-slate-500 font-semibold mt-0.5">我们会通过企业邮箱发送 PDF 形式的正规报价单</p>
-                </div>
-              </div>
-
-              {/* Address Map Pin */}
-              <div className="flex items-start space-x-3.5 bg-slate-50 p-4.5 rounded-xl border border-slate-205">
-                <div className="bg-white border border-slate-200 p-2.5 rounded-lg text-slate-850 shrink-0 mt-0.5 shadow-xs">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-xs font-mono font-bold tracking-widest text-slate-500 uppercase">HEAD DEPOT</h4>
-                  <p className="text-sm font-extrabold text-slate-900 mt-1">{t.corpAddressVal}</p>
-                  <p className="text-[10px] text-slate-500 font-semibold mt-0.5">东京都足立区江北3-30-18</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Support guarantee badge */}
-            <div className="p-4 bg-slate-50 rounded-lg border border-slate-205 flex items-center space-x-3 text-xs text-slate-650 font-semibold leading-relaxed font-sans shadow-2xs">
-              <ShieldCheck className="w-8 h-8 text-slate-900 shrink-0" />
-              <span>
-                <strong>日本原厂保证：</strong> 售出的每一条轮胎均带完整的生产批次DOT代码与JIS检验标识，支持全渠道检验。
-              </span>
-            </div>
-          </div>
-
-          {/* Right Panel: Interactive Submission form Card */}
-          <div className="lg:col-span-12 xl:col-span-7 bg-white border border-slate-205 p-6 sm:p-8 rounded-2xl shadow-sm relative">
+        {/* Contact Split Layout - Center Aligned Card */}
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white border border-slate-205 rounded-3xl p-6 sm:p-10 shadow-sm space-y-8">
             
             {/* Active Selected Tire Tag indicator */}
             {selectedTire && (
-              <div className="mb-6 bg-slate-50 border border-slate-200 p-3.5 rounded-xl flex items-center justify-between">
+              <div className="bg-slate-50 border border-slate-200 p-4 rounded-xl flex items-center justify-between animate-fade-in shadow-2xs">
                 <div className="text-xs">
-                  <span className="font-extrabold text-slate-500 block">已锁定目录款式 (Catalog product selected)</span>
-                  <span className="text-slate-900 font-mono font-extrabold">
+                  <span className="font-extrabold text-slate-500 block mb-0.5">現在選択中モデル (Selected Pattern for inquiry)</span>
+                  <span className="text-slate-900 font-mono font-extrabold text-sm sm:text-base">
                     KOMATSU {selectedTire.name} ({selectedTire.width}/{selectedTire.aspectRatio} R{selectedTire.diameter})
                   </span>
                 </div>
                 <button
                   type="button"
                   onClick={onClearSelectedTire}
-                  className="p-1.5 rounded-full hover:bg-slate-200 border border-transparent text-slate-500 hover:text-black transition-colors cursor-pointer"
-                  title="清除选择"
+                  className="p-1.5 rounded-full hover:bg-slate-200 border border-transparent text-slate-500 hover:text-black transition-colors cursor-pointer shrink-0 ml-4"
+                  title="清除"
                 >
                   <X className="w-4 h-4" />
                 </button>
               </div>
             )}
 
-            {isSubmitted ? (
-              /* Success Stage */
-              <div className="text-center py-10 space-y-6 animate-fade-in">
-                <div className="w-16 h-16 bg-emerald-50 border border-emerald-200 rounded-full flex items-center justify-center mx-auto shadow-sm">
-                  <CheckCircle2 className="w-10 h-10 text-emerald-650" />
+            <div className="border-b border-slate-100 pb-6 text-center sm:text-left">
+              <h3 className="text-2xl font-extrabold text-slate-900 flex items-center justify-center sm:justify-start space-x-2">
+                <span className="w-1.5 h-6 bg-black rounded" />
+                <span>小松株式会社 <span className="text-slate-500 font-normal text-lg">Contact Desk</span></span>
+              </h3>
+              <p className="text-sm text-slate-600 leading-relaxed font-semibold mt-4">
+                大口卸売・日本国内の物流手配・スポット調達に対応。ディーラー様・整備工場様向け取引、インボイス制度適格請求書（登録番号あり）に完全対応しています。
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-6 pt-2">
+              
+              {/* Landline item */}
+              <div className="flex items-start space-x-4 bg-slate-50 p-5 rounded-2xl border border-slate-205">
+                <div className="bg-white border border-slate-200 p-3 rounded-lg text-slate-850 shrink-0 mt-0.5 shadow-xs">
+                  <Phone className="w-5 h-5 text-slate-900" />
                 </div>
-                <div className="space-y-2">
-                  <h4 className="text-xl font-bold text-slate-900">{t.formSuccessTitle}</h4>
-                  <p className="text-xs sm:text-sm text-slate-650 font-semibold leading-relaxed max-w-md mx-auto">
-                    {t.formSuccessDesc}
+                <div>
+                  <h4 className="text-xs font-mono font-bold tracking-widest text-slate-550 uppercase">{t.telNum}</h4>
+                  <p className="text-xl font-extrabold font-mono text-slate-900 mt-1">{t.telVal}</p>
+                  <p className="text-[10px] text-slate-500 font-semibold mt-0.5">{t.workHoursVal}</p>
+                </div>
+              </div>
+
+              {/* Mobile item */}
+              <div className="flex items-start space-x-4 bg-slate-50 p-5 rounded-2xl border border-slate-205">
+                <div className="bg-white border border-slate-200 p-3 rounded-lg text-slate-850 shrink-0 mt-0.5 shadow-xs">
+                  <Phone className="w-5 h-5 text-slate-900" />
+                </div>
+                <div>
+                  <h4 className="text-xs font-mono font-bold tracking-widest text-slate-550 uppercase">{t.mobileNum}</h4>
+                  <p className="text-xl font-extrabold font-mono text-slate-900 mt-1">{t.mobileVal}</p>
+                  <p className="text-[10px] text-slate-500 font-semibold mt-0.5">
+                    携帯電話窓口 · 担当直通
                   </p>
                 </div>
-                <div className="pt-4 font-mono text-[10px] text-slate-500">
-                  REF NO: #KMTS-{(Math.floor(Math.random() * 900000) + 100000)} • 法人番号: 6011801046241
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setIsSubmitted(false)}
-                  className="px-6 py-2 bg-black hover:bg-slate-800 rounded-lg text-xs font-bold text-white transition-all cursor-pointer shadow-xs"
-                >
-                  重新填写其他预约
-                </button>
               </div>
-            ) : (
-              /* Core Inputs form */
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {/* Name */}
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-700 block">{t.formLabelName} <span className="text-slate-400">*</span></label>
-                    <input
-                      type="text"
-                      required
-                      placeholder={t.formPlaceholderName}
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-205 rounded-lg px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 font-semibold focus:outline-none focus:border-black focus:bg-white transition-all font-sans"
-                    />
-                  </div>
 
-                  {/* Email */}
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-700 block">{t.formLabelEmail} <span className="text-slate-400">*</span></label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="info@yourcompany.jp"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-205 rounded-lg px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 font-semibold focus:outline-none focus:border-black focus:bg-white transition-all font-mono"
-                    />
-                  </div>
+              {/* Email item */}
+              <div className="flex items-start space-x-4 bg-slate-50 p-5 rounded-2xl border border-slate-205">
+                <div className="bg-white border border-slate-200 p-3 rounded-lg text-slate-850 shrink-0 mt-0.5 shadow-xs">
+                  <Mail className="w-5 h-5 text-slate-900" />
                 </div>
-
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {/* Phone */}
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-700 block">{t.formLabelPhone} <span className="text-slate-400">*</span></label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="例：03-1234-5678"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-205 rounded-lg px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 font-semibold focus:outline-none focus:border-black focus:bg-white transition-all font-mono"
-                    />
-                  </div>
-
-                  {/* Tire Type select */}
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-700 block">{t.formLabelType}</label>
-                    <select
-                      value={formData.tireType}
-                      onChange={(e) => setFormData({ ...formData, tireType: e.target.value as any })}
-                      className="w-full bg-slate-50 border border-slate-205 rounded-lg px-4 py-2.5 text-sm text-slate-900 font-bold focus:outline-none focus:border-black focus:bg-white transition-all font-sans appearance-none"
-                    >
-                      <option value={TireType.SPORT}>{t.sport}</option>
-                      <option value={TireType.COMFORT}>{t.comfort}</option>
-                      <option value={TireType.ECO}>{t.eco}</option>
-                      <option value={TireType.SUV}>{t.suv}</option>
-                      <option value={TireType.WINTER}>{t.winter}</option>
-                    </select>
-                  </div>
+                <div>
+                  <h4 className="text-xs font-mono font-bold tracking-widest text-slate-550 uppercase">{t.emailContact}</h4>
+                  <p className="text-sm sm:text-base font-extrabold font-mono text-slate-900 mt-1">maki@komatsujapan.co.jp</p>
+                  <p className="text-[10px] text-slate-500 font-semibold mt-1">
+                    24時間メール受付、お見積書をPDF形式でお送りします
+                  </p>
                 </div>
+              </div>
 
-                <div className="grid sm:grid-cols-3 gap-4">
-                  {/* Size requested */}
-                  <div className="sm:col-span-2 space-y-1.5 font-mono">
-                    <label className="text-xs font-bold text-slate-700 block">{t.formLabelSize} (Size code)</label>
-                    <input
-                      type="text"
-                      placeholder="例如：215/60R16 或 R18等 (可空白)"
-                      value={formData.sizeDesired}
-                      onChange={(e) => setFormData({ ...formData, sizeDesired: e.target.value })}
-                      className="w-full bg-slate-50 border border-slate-205 rounded-lg px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 font-semibold focus:outline-none focus:border-black focus:bg-white transition-all"
-                    />
-                  </div>
-
-                  {/* Quantity requested */}
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-700 block">{t.formLabelQty}</label>
-                    <select
-                      value={formData.quantity}
-                      onChange={(e) => setFormData({ ...formData, quantity: parseInt(e.target.value) })}
-                      className="w-full bg-slate-50 border border-slate-205 rounded-lg px-4 py-2.5 text-sm text-slate-900 font-bold focus:outline-none focus:border-black focus:bg-white transition-all font-mono"
-                    >
-                      <option value="1">1 条 (Spare)</option>
-                      <option value="2">2 条 (Axle)</option>
-                      <option value="4">4 条 (Full set)</option>
-                      <option value="8">8 条 (Large batch)</option>
-                      <option value="12">12 条以上 (Bulk)</option>
-                    </select>
-                  </div>
+              {/* Address Map Pin */}
+              <div className="flex items-start space-x-4 bg-slate-50 p-5 rounded-2xl border border-slate-205">
+                <div className="bg-white border border-slate-200 p-3 rounded-lg text-slate-850 shrink-0 mt-0.5 shadow-xs">
+                  <MapPin className="w-5 h-5 text-slate-900" />
                 </div>
-
-                {/* Additional message notes */}
-                <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-700 block">{t.formLabelMsg}</label>
-                  <textarea
-                    rows={4}
-                    placeholder={t.formPlaceholderMsg}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-205 rounded-lg px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 font-semibold focus:outline-none focus:border-black focus:bg-white transition-all font-sans"
-                  />
+                <div>
+                  <h4 className="text-xs font-mono font-bold tracking-widest text-slate-550 uppercase">HEAD DEPOT / 足立デポ</h4>
+                  <p className="text-sm font-extrabold text-slate-900 mt-1">{t.corpAddressVal}</p>
+                  <p className="text-[10px] text-slate-500 font-semibold mt-0.5">東京都足立区江北3-30-18</p>
                 </div>
+              </div>
 
-                {/* Submit trigger button */}
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full flex items-center justify-center space-x-2 py-3.5 rounded-lg bg-black hover:bg-slate-800 disabled:bg-slate-300 text-white font-extrabold tracking-wider text-sm transition-all disabled:opacity-50 cursor-pointer shadow-md shadow-slate-200"
-                >
-                  <Send className="w-4 h-4 text-white" />
-                  <span>{isSubmitting ? t.formSending : t.formSubmitBtn}</span>
-                </button>
-              </form>
-            )}
+            </div>
+
+            {/* Support guarantee badge */}
+            <div className="p-5 bg-slate-50 rounded-2xl border border-slate-205 flex items-center space-x-4 text-xs text-slate-650 font-semibold leading-relaxed font-sans shadow-2xs">
+              <ShieldCheck className="w-10 h-10 text-slate-900 shrink-0" />
+              <span>
+                <strong>メーカー正規品保証：</strong> 当社が取り扱うすべてのタイヤには、製造ロットDOTコードおよびJIS認証マークが付随しています。当社は <strong>日本国税庁公認の適格請求書発行事業者（登録番号: T6011801046241）</strong> であり、適格適正インボイスの発行に完全対応しています。
+              </span>
+            </div>
 
           </div>
-
         </div>
 
       </div>

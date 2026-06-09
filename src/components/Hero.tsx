@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { useTranslation } from '../context/LanguageContext';
-import { ShieldAlert, Award, Star, ArrowRight } from 'lucide-react';
+import { ShieldAlert, Award, Star } from 'lucide-react';
 import heroImage from '../assets/images/komatsu_tire_hero_1780906447057.png';
 
 export const Hero: React.FC = () => {
@@ -30,7 +30,7 @@ export const Hero: React.FC = () => {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">
               {t.sloganBig} <br />
               <span className="text-slate-900">
-                小松轮胎 (KOMATSU)
+                小松タイヤ (KOMATSU)
               </span>
             </h1>
 
@@ -40,15 +40,8 @@ export const Hero: React.FC = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <a
-                href="#products"
-                className="inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-lg bg-black text-sm font-bold tracking-wide text-white hover:bg-slate-800 shadow-lg shadow-black/10 transition-all text-center cursor-pointer"
-              >
-                <span>{t.btnCatalog}</span>
-                <ArrowRight className="w-4 h-4 text-white" />
-              </a>
-              <a
                 href="#contact"
-                className="inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-lg bg-white border border-slate-300 hover:border-slate-400 hover:bg-slate-50 text-sm font-bold text-slate-800 transition-all text-center cursor-pointer"
+                className="inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-lg bg-black text-sm font-bold tracking-wide text-white hover:bg-slate-800 shadow-lg shadow-black/10 transition-all text-center cursor-pointer"
               >
                 <span>{t.btnInquiry}</span>
               </a>

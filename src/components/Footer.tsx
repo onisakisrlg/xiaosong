@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
               <span className="text-slate-900 font-black text-lg font-sans">小松株式会社</span>
             </div>
             <p className="text-xs text-slate-550 max-w-sm font-sans leading-relaxed font-semibold">
-              小松株式会社（Komatsu Co., Ltd.）是位于日本东京都足立区的实业发货和整车轮胎调运企业。我们通过合规、规范渠道进行多用途轿车及商用货车轮胎贩卖，确保用户出行安心稳定。
+              小松株式会社（Komatsu Co., Ltd.）は、東京都足立区に事業所（足立倉庫・デポ）を置く、タイヤ・ホイール等の卸売および配送管理を行う企業です。正規ルートを通じた高品質乗用車・ライトトラック用タイヤの供給により、お客様の安全なドライブを支えます。
             </p>
             <div className="pt-2">
               <div className="text-[10px] text-slate-500 font-bold font-mono tracking-wider uppercase">国税庁法人登録機関証明</div>
@@ -63,7 +63,7 @@ export const Footer: React.FC = () => {
                 登録認証済み番号: <span className="font-extrabold text-slate-900">T6011801046241</span>
               </p>
               <p className="pl-5 text-[11px] text-slate-500 font-medium">
-                ※ 来店タイヤ交換（要事前予約）、大型配送・运送対応。
+                ※ 来店タイヤ交換（要予約）、国内大型配送対応。
               </p>
             </div>
           </div>

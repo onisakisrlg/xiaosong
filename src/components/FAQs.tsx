@@ -4,13 +4,12 @@
  */
 
 import React, { useState } from 'react';
-import { useTranslation, useLanguage } from '../context/LanguageContext';
+import { useTranslation } from '../context/LanguageContext';
 import { FAQS } from '../data';
 import { HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
 
 export const FAQs: React.FC = () => {
-  const { t } = useTranslation();
-  const { language } = useLanguage();
+  const t = useTranslation().t;
   const [openId, setOpenId] = useState<string | null>('f1');
 
   const toggleAccordion = (id: string) => {
@@ -28,7 +27,7 @@ export const FAQs: React.FC = () => {
           </h2>
           <div className="w-16 h-1 bg-black mx-auto rounded-full" />
           <p className="text-sm sm:text-base text-slate-500 font-medium">
-            常见的轮胎技术指标与配送置换事宜
+            タイヤの選び方・仕様・お取引についてのご案内
           </p>
         </div>
 
@@ -36,8 +35,8 @@ export const FAQs: React.FC = () => {
         <div className="space-y-4">
           {FAQS.map((faq) => {
             const isOpen = openId === faq.id;
-            const questionText = language === 'ja' ? faq.questionJa : faq.question;
-            const answerText = language === 'ja' ? faq.answerJa : faq.answer;
+            const questionText = faq.question;
+            const answerText = faq.answer;
 
             return (
               <div
@@ -76,8 +75,7 @@ export const FAQs: React.FC = () => {
         {/* Notice of commitment for support */}
         <div className="mt-10 p-5 rounded-xl border border-dashed border-slate-200 bg-slate-50/50 text-center">
           <p className="text-xs text-slate-600 font-sans font-semibold leading-relaxed">
-            如您有超出以上技术清单的其他疑难规格
-            （包括大规格工程车轮胎、低扁平防爆胎），欢迎直接拨打下方热线或提报估价卡，我们轮胎技术团队会直接联络您。
+            ※ 上記にないサイズ、特殊なタイヤ（大型建機用、ランフラット等）についてもお取り寄せ・対応が可能です。どうぞお気軽に弊社窓口まで直接ご相談ください。
           </p>
         </div>
 

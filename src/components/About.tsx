@@ -114,7 +114,7 @@ export const About: React.FC = () => {
                             rel="noopener noreferrer"
                             className="inline-flex items-center space-x-1 ml-2 text-slate-600 hover:text-black text-xs transition-colors underline"
                           >
-                            <span>地图查看</span>
+                            <span>マップで開く</span>
                             <ArrowUpRight className="w-3 h-3" />
                           </a>
                         )}
@@ -133,7 +133,7 @@ export const About: React.FC = () => {
               <div>
                 <p className="text-xs text-slate-500">本店配送部所在地 (Tokyo Depot)</p>
                 <p className="text-sm font-extrabold text-slate-900 mt-0.5">東京都足立区江北３丁目３０－１８</p>
-                <p className="text-xs text-slate-600 mt-1">※ 近江北线、江北出口。日本全国大规格卡车载重规格轮胎均可调拨配载。</p>
+                <p className="text-xs text-slate-600 mt-1">※ 首都高速川口線・江北出入口近く。日本全国、大型トラック用まで各種タイヤの発送調達が可能です。</p>
               </div>
             </div>
           </div>
@@ -162,9 +162,9 @@ export const About: React.FC = () => {
               <div className="flex items-start space-x-3">
                 <Award className="w-6 h-6 text-slate-900 shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-xs font-bold text-slate-700 font-mono tracking-widest uppercase mb-1">官方正规商号</p>
+                  <p className="text-xs font-bold text-slate-700 font-mono tracking-widest uppercase mb-1">実体登録法人</p>
                   <p className="text-sm text-slate-600 leading-relaxed font-semibold">
-                    小松株式会社（Komatsu Co., Ltd.）是经日本法务局（法務局）及国税厅正式受案核准成立的综合汽配轮胎分销机构。由于我们在汽车配件 and 橡胶轮胎领域拥有稳健的地方配货协议，所有交易发票均符合日本适格请求书（インボイス制度）要求。
+                    小松株式会社（Komatsu Co., Ltd.）は、法務局および国税庁に正規に登記された総合自動車タイヤ流通企業です。インボイス制度（適格請求書発行事業者登録番号：T6011801046241）にも完全対応しており、お見積書および請求書の発行もスムーズに行うことができます。
                   </p>
                 </div>
               </div>

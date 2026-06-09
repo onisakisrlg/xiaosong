@@ -13,11 +13,12 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   const [language, setLanguageState] = useState<'zh' | 'ja'>('ja');
 
   const setLanguage = (lang: 'zh' | 'ja') => {
-    setLanguageState(lang);
+    // Only support Japanese locale
+    setLanguageState('ja');
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage }}>
+    <LanguageContext.Provider value={{ language: 'ja', setLanguage }}>
       {children}
     </LanguageContext.Provider>
   );

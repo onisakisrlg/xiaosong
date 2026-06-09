@@ -13,7 +13,6 @@ import { LanguageProvider } from './context/LanguageContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
-import { TiresCatalog } from './components/TiresCatalog';
 import { FAQs } from './components/FAQs';
 import { InquiryForm } from './components/InquiryForm';
 import { Footer } from './components/Footer';
@@ -42,9 +41,6 @@ export default function App() {
 
         {/* About / Corporate profile Section */}
         <About />
-
-        {/* Products Catalogue */}
-        <TiresCatalog onSelectTire={handleSelectTire} />
 
         {/* FAQs */}
         <FAQs />

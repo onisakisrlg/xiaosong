@@ -4,22 +4,16 @@
  */
 
 import React, { useState } from 'react';
-import { useLanguage, useTranslation } from '../context/LanguageContext';
-import { Globe, Menu, X, Phone, ShieldCheck } from 'lucide-react';
+import { useTranslation } from '../context/LanguageContext';
+import { Menu, X, Phone, ShieldCheck } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
-  const { language, setLanguage } = useLanguage();
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-
-  const toggleLanguage = () => {
-    setLanguage(language === 'zh' ? 'ja' : 'zh');
-  };
 
   const menuItems = [
     { name: t.navHome, href: '#home' },
     { name: t.navAbout, href: '#about' },
-    { name: t.navProducts, href: '#products' },
     { name: t.navFAQ, href: '#faq' },
     { name: t.navContact, href: '#contact' },
   ];
@@ -57,16 +51,6 @@ export const Navbar: React.FC = () => {
 
           {/* Right Action buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            {/* Language Switcher */}
-            <button
-              onClick={toggleLanguage}
-              id="btn-lang-switcher"
-              className="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full border border-slate-200 bg-slate-50 text-slate-800 text-xs font-semibold hover:bg-slate-100 hover:border-slate-300 transition-all cursor-pointer"
-            >
-              <Globe className="w-3.5 h-3.5 text-slate-500" />
-              <span>{t.langName}</span>
-            </button>
-
             {/* Quick Consultation Badge */}
             <a
               href="#contact"
@@ -79,16 +63,6 @@ export const Navbar: React.FC = () => {
 
           {/* Hamburger toggle */}
           <div className="lg:hidden flex items-center space-x-2">
-            {/* Lang for mobile */}
-            <button
-              onClick={toggleLanguage}
-              id="btn-lang-mobile"
-              className="flex items-center space-x-1 px-2.5 py-1.5 rounded-full bg-slate-100 border border-slate-250 text-slate-800 text-xs font-semibold cursor-pointer"
-            >
-              <Globe className="w-3.5 h-3.5 text-slate-600" />
-              <span>{t.langName}</span>
-            </button>
-
             <button
               onClick={() => setIsOpen(!isOpen)}
               id="btn-menu-hamburger"
