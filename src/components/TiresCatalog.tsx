@@ -157,7 +157,7 @@ export const TiresCatalog: React.FC<TiresCatalogProps> = ({ onSelectTire }) => {
 
                   <div>
                     <h4 className="text-xs font-mono font-bold text-slate-400 tracking-wider uppercase mb-1">
-                      {product.brand} ORIGINAL SERIES
+                      {product.brand === 'KOMATSU' ? 'KOMATSU ORIGINAL SERIES' : `${product.brand} PREMIUM SERIES`}
                     </h4>
                     <h3 className="text-lg font-bold text-slate-900 group-hover:text-black transition-colors">
                       {product.name}
