@@ -26,6 +26,19 @@ export interface TireProduct {
   description: string; // 商品介绍
   image: string;       // 图片链接
   popularity: number;  // 热门评分
+  specDetails?: {
+    productCode?: string;          // 商品コード
+    information?: string;          // インフォメーション
+    sectionWidth?: number;         // 断面幅 (mm)
+    outerDiameter?: number;        // 外径 (mm)
+    measuringRimWidth?: number;    // 計測リム幅 (inch)
+    compatibleRimWidth?: string;   // 適合リム幅 (inch)
+    lowNoise?: boolean;            // 低車外音
+    lowFuelEco?: boolean;          // 低燃費タイヤ
+    reviewScore?: number;          // ユーザー評価
+    reviewCount?: number;          // レビュー件数
+  };
+  galleryImages?: string[];        // 6个图片的画廊占位
 }
 
 export interface InquiryFormData {
