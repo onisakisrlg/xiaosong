@@ -53,8 +53,8 @@ export const TIRE_PRODUCTS: TireProduct[] = [
     diameter: 17,
     loadIndex: 99,
     speedRating: 'H',
-    priceYen: 28500,
-    features: ['最高峰の静粛性能', 'ミニバン・SUV専用設計', '路面からの振動を極限カット'],
+    priceYen: 21000,
+    features: ['最高峰の静粛性能', 'ミニバン・SUV専用設計', '路面からの振動を极限カット'],
     description: '「ワンランク上の静粛性と乗り心地」を体感したいミニバン・SUVユーザーへ送る、ブリヂストン最高峰のプレミアムフラッグシップタイヤ。ふらつきを抑制し、洗練された空間品質を提供します。',
     image: 'regno_grx3',
     popularity: 4.95,
@@ -69,7 +69,13 @@ export const TIRE_PRODUCTS: TireProduct[] = [
       lowFuelEco: true,
       reviewScore: 4.9,
       reviewCount: 182
-    }
+    },
+    galleryImages: [
+      'https://i.postimg.cc/SRWSThrH/5baa58042a09fdad674f53b7826a6b3c.jpg',
+      'https://i.postimg.cc/8zkpHxrM/2.jpg',
+      'https://i.postimg.cc/7ZBxQX3H/3.jpg',
+      'https://i.postimg.cc/fbpMMLqB/4.jpg'
+    ]
   },
   {
     id: 'komatsu-sport-s1',

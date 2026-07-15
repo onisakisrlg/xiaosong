@@ -213,7 +213,7 @@ export const TiresCatalog: React.FC<TiresCatalogProps> = ({ onSelectTire }) => {
                     >
                       <span className="flex items-center space-x-1">
                         <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
-                        <span>【詳細仕様・6枚画像ギャラリー】</span>
+                        <span>【詳細仕様・{product.galleryImages?.length || 0}枚画像ギャラリー】</span>
                       </span>
                       {expandedSpecs[product.id] ? <ChevronUp className="w-3.5 h-3.5 text-slate-500" /> : <ChevronDown className="w-3.5 h-3.5 text-slate-500" />}
                     </button>
@@ -223,12 +223,12 @@ export const TiresCatalog: React.FC<TiresCatalogProps> = ({ onSelectTire }) => {
                 {/* Spec and gallery expand section */}
                 {product.specDetails && expandedSpecs[product.id] && (
                   <div className="px-6 pb-4 pt-2 border-t border-slate-100 bg-slate-50/50 animate-fade-in space-y-4 text-xs">
-                    {/* 6-image Gallery Placeholder if galleryImages is defined */}
+                    {/* Multi-image Gallery */}
                     {product.galleryImages && (
                       <div className="space-y-2">
                         <div className="text-[10px] font-extrabold text-slate-500 uppercase tracking-widest flex items-center space-x-1">
                           <Camera className="w-3.5 h-3.5 text-slate-400" />
-                          <span>製品詳細マルチビュー (6枚画像ギャラリー)</span>
+                          <span>製品詳細マルチビュー ({product.galleryImages.length}枚画像ギャラリー)</span>
                         </div>
                         
                         {/* Selected Big Preview Area */}
@@ -236,7 +236,7 @@ export const TiresCatalog: React.FC<TiresCatalogProps> = ({ onSelectTire }) => {
                           {product.galleryImages[activeImageIndex[product.id] ?? 0] ? (
                             <img
                               src={product.galleryImages[activeImageIndex[product.id] ?? 0]}
-                              alt={`Primacy 5 preview ${(activeImageIndex[product.id] ?? 0) + 1}`}
+                              alt={`${product.name} preview ${(activeImageIndex[product.id] ?? 0) + 1}`}
                               className="w-full h-full object-contain"
                               referrerPolicy="no-referrer"
                             />
@@ -244,27 +244,42 @@ export const TiresCatalog: React.FC<TiresCatalogProps> = ({ onSelectTire }) => {
                             <div className="p-4 flex flex-col items-center justify-center text-center">
                               <ImageIcon className="w-8 h-8 text-slate-400 mb-2" />
                               <div className="font-extrabold text-slate-700 text-xs font-mono">
-                                【Primacy 5】画像プレースホルダー #{(activeImageIndex[product.id] ?? 0) + 1}
+                                【{product.name}】画像プレースホルダー #{(activeImageIndex[product.id] ?? 0) + 1}
                               </div>
                             </div>
                           )}
                           <div className="absolute top-2 right-2 bg-slate-900/90 backdrop-blur-xs text-white text-[9px] font-mono px-2 py-0.5 rounded font-bold shadow-sm">
-                            画像 #{(activeImageIndex[product.id] ?? 0) + 1} / 6
+                            画像 #{(activeImageIndex[product.id] ?? 0) + 1} / {product.galleryImages.length}
                           </div>
-                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent p-3 text-white">
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent p-3 text-white">
                             <div className="text-[11px] font-extrabold tracking-wide drop-shadow-md">
-                              {((activeImageIndex[product.id] ?? 0) === 0) && "MICHELIN Primacy 5 全体プロポーション＆サイドウォール"}
-                              {((activeImageIndex[product.id] ?? 0) === 1) && "高次元の静粛性と快適な極上乗り心地を追求した設計"}
-                              {((activeImageIndex[product.id] ?? 0) === 2) && "濡れた路面（ハイドロプレーニング路面）での圧倒的な制動安定性"}
-                              {((activeImageIndex[product.id] ?? 0) === 3) && "プレミアムな質感を放つ特許技術『プレミアムタッチ』サイドデザイン"}
-                              {((activeImageIndex[product.id] ?? 0) === 4) && "低燃費性能を高めつつ、ロングライフ高耐久を極めたプレミアムブレンド"}
-                              {((activeImageIndex[product.id] ?? 0) === 5) && "インボイス制度対応の正規代理店卸ルート完全保証付き"}
+                              {product.id === 'michelin-primacy-5' && (
+                                <>
+                                  {((activeImageIndex[product.id] ?? 0) === 0) && "MICHELIN Primacy 5 全体プロポーション＆サイドウォール"}
+                                  {((activeImageIndex[product.id] ?? 0) === 1) && "高次元の静粛性と快適な極上乗り心地を追求した設計"}
+                                  {((activeImageIndex[product.id] ?? 0) === 2) && "濡れた路面（ハイドロプレーニング路面）での圧倒的な制動安定性"}
+                                  {((activeImageIndex[product.id] ?? 0) === 3) && "プレミアムな質感を放つ特許技術『プレミアムタッチ』サイドデザイン"}
+                                  {((activeImageIndex[product.id] ?? 0) === 4) && "低燃費性能を高めつつ、ロングライフ高耐久を極めたプレミアムブレンド"}
+                                  {((activeImageIndex[product.id] ?? 0) === 5) && "インボイス制度対応の正規代理店卸ルート完全保証付き"}
+                                </>
+                              )}
+                              {product.id === 'bridgestone-regno-grx3-rv' && (
+                                <>
+                                  {((activeImageIndex[product.id] ?? 0) === 0) && "REGNO GR-XⅢ プレミアム静粛性と上質な乗り心地のフォルム"}
+                                  {((activeImageIndex[product.id] ?? 0) === 1) && "ミニバン・SUV専用チューニングを施したトレッド剛性とパターン"}
+                                  {((activeImageIndex[product.id] ?? 0) === 2) && "路面からの不快な振動・ノイズを極限まで低減する革新テクノロジー"}
+                                  {((activeImageIndex[product.id] ?? 0) === 3) && "安全性能を維持したまま、ふらつきを抑制するサイドウォール構造"}
+                                </>
+                              )}
                             </div>
                           </div>
                         </div>
 
-                        {/* 6 Thumbnails click to switch */}
-                        <div className="grid grid-cols-6 gap-1.5">
+                        {/* Dynamic Thumbnails click to switch */}
+                        <div 
+                          className="grid gap-1.5"
+                          style={{ gridTemplateColumns: `repeat(${product.galleryImages.length}, minmax(0, 1fr))` }}
+                        >
                           {product.galleryImages.map((imgUrl, index) => {
                             const isSelected = (activeImageIndex[product.id] ?? 0) === index;
                             return (
@@ -281,7 +296,7 @@ export const TiresCatalog: React.FC<TiresCatalogProps> = ({ onSelectTire }) => {
                                   <img
                                     src={imgUrl}
                                     alt={`thumb ${index}`}
-                                    className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
+                                    className="w-full h-full object-cover opacity-85 hover:opacity-100 transition-opacity"
                                     referrerPolicy="no-referrer"
                                   />
                                 ) : (
